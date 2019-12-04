@@ -1,0 +1,872 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:OtherShip ="clr-namespace:JRC_JHS182_AIS_D"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="JRC_JHS182_AIS_D.JRC_JHS182_AIS" 
+             mc:Ignorable="d" d:DesignHeight="900" d:DesignWidth="1440" x:Name="AIS">
+    <Viewbox Stretch="Fill">
+        <Grid Width="1440" Height="900" Name="Grid_Main" MouseRightButtonDown="Grid_MouseRightButtonDown">
+                <Image Height="900" HorizontalAlignment="Left" x:Name="image0" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182正常%20不亮.bmp" />
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20不亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="963,155,60,60"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20不亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="958,476,90,55"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20不亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="961,547,90,55"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image4" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20不亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="963,661,79,73"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image5" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20不亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="1056,661,79,73"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image_ON" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182正常%20亮.bmp" />
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image1_ON" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="963,155,60,60"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image2_ON" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="958,476,90,55"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image3_ON" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="961,547,90,55"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image4_ON" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="963,661,79,73"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image5_ON" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182按键%20亮.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="1056,661,79,73"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="30" HorizontalAlignment="Left" Margin="1079,474,0,0" x:Name="imagedown" Stretch="Fill" VerticalAlignment="Top" Width="30" Source="/JRC_JHS182_AIS_D;component/Images/小箭头.png" RenderTransformOrigin="0.5,-0.033" Visibility="Collapsed" />
+            <Image Height="30" HorizontalAlignment="Left" Margin="1133,422,0,0" x:Name="imageright" Stretch="Fill" VerticalAlignment="Top" Width="30" Source="Images/小箭头.png" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+            	<Image.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="-90"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</Image.RenderTransform>
+            </Image>
+            <Image Height="30" HorizontalAlignment="Left" Margin="1097,399,0,0" x:Name="imageleft" Stretch="Fill" VerticalAlignment="Top" Width="30" Source="Images/小箭头.png" RenderTransformOrigin="-1.067,-0.276" Visibility="Collapsed">
+            	<Image.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform/>
+            			<SkewTransform/>
+            			<RotateTransform Angle="90"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</Image.RenderTransform>
+            </Image>
+            <Image Height="30" HorizontalAlignment="Left" Margin="1078,376,0,0" x:Name="imageup" Stretch="Fill" VerticalAlignment="Top" Width="30" Source="Images/小箭头.png" d:LayoutOverrides="VerticalAlignment" RenderTransformOrigin="0.267,0.586" Visibility="Collapsed">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                    	<ScaleTransform />
+                    	<SkewTransform />
+                    	<RotateTransform Angle="180" />
+                    	<TranslateTransform X="13.98" Y="-9.976" />
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Button Content="Button1" Cursor="Hand" Height="66" HorizontalAlignment="Right" Margin="0,151,411,0" x:Name="Btn_MENU" VerticalAlignment="Top" Width="68" Visibility="Visible" MouseLeftButtonDown="Button_MouseLeftButtonDown_MENU" MouseLeftButtonUp="Button_MouseLeftButtonUp_MENU" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000"/>
+            <Button Content="Button2" Cursor="Hand" Height="58" HorizontalAlignment="Right" Margin="0,473,395,0" x:Name="Btn_CLR" VerticalAlignment="Top" Width="78" Visibility="Visible" MouseLeftButtonDown="Button_MouseLeftButtonDown_CLR" MouseLeftButtonUp="Button_MouseLeftButtonUp_CLR" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000"/>
+            <Button Content="Button3" Cursor="Hand" Height="58" HorizontalAlignment="Left" Margin="965,543,0,0" x:Name="Btn_DSPL" VerticalAlignment="Top" Width="78" MouseLeftButtonDown="Button_MouseLeftButtonDown_PWR" MouseLeftButtonUp="Button_MouseLeftButtonUp_PWR" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000"/>
+            <Button Content="Button4" Cursor="Hand" Height="57" HorizontalAlignment="Right" Margin="0,667,406,0" x:Name="Btn_PWR" VerticalAlignment="Top" Width="61" MouseLeftButtonDown="Button_MouseLeftButtonDown_PWR" MouseLeftButtonUp="Button_MouseLeftButtonUp_PWR" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000" />
+            <Button Content="Button5" Cursor="Hand" Margin="0,0,314,175" x:Name="Btn_OFF" Height="57" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="61" MouseLeftButtonDown="Button_MouseLeftButtonDown_OFF" MouseLeftButtonUp="Button_MouseLeftButtonUp_OFF" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000"/>
+            <Button Content="Button6" Cursor="Hand" Height="42" HorizontalAlignment="Right" Margin="0,369,320,0" x:Name="Btn_Stk_up" VerticalAlignment="Top" Visibility="Visible" Width="52" MouseLeftButtonDown="Button_MouseLeftButtonDown_Stk_up" MouseLeftButtonUp="Button_MouseLeftButtonUp_Stk_up" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000" MouseMove="Btn_Stk_up_MouseMove" MouseLeave="Btn_Stk_up_MouseLeave" />
+            <Button Content="Button7" Cursor="Hand" Height="36" HorizontalAlignment="Right" Margin="0,459,312,0" x:Name="Btn_Stk_down" VerticalAlignment="Top" Visibility="Visible" Width="65" MouseLeftButtonDown="Button_MouseLeftButtonDown_Stk_down" MouseLeftButtonUp="Button_MouseLeftButtonUp_Stk_down" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000" MouseMove="Btn_Stk_down_MouseMove" MouseLeave="Btn_Stk_down_MouseLeave" />
+            <Button Content="Button8" Cursor="Hand" Height="64" HorizontalAlignment="Right" Margin="0,408,363,0" x:Name="Btn_Stk_left" VerticalAlignment="Top" Visibility="Visible" Width="37" MouseLeftButtonDown="Button_MouseLeftButtonDown_Stk_left" MouseLeftButtonUp="Button_MouseLeftButtonUp_Stk_left" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000" MouseMove="Btn_Stk_left_MouseMove" MouseLeave="Btn_Stk_left_MouseLeave" />
+            <Button Content="Button9" Cursor="Hand" Height="61" HorizontalAlignment="Right" Margin="0,407,289,0" x:Name="Btn_Stk_right" VerticalAlignment="Top" Visibility="Visible" Width="34" MouseLeftButtonDown="Button_MouseLeftButtonDown_Stk_right" MouseLeftButtonUp="Button_MouseLeftButtonUp_Stk_right" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000" MouseMove="Btn_Stk_right_MouseMove" MouseLeave="Btn_Stk_right_MouseLeave" />
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image6" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/小按钮%20上拨.bmp" >
+            <Image.Clip>
+                <RectangleGeometry Rect="1048,400,90,90"/>
+            </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image7" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/小按钮%20下拨.bmp" >
+                <Image.Clip>
+                    <RectangleGeometry Rect="1048,400,90,90"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image8" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/小按钮%20左拨.bmp">
+                <Image.Clip>
+                    <RectangleGeometry Rect="1048,400,90,90"/>
+                </Image.Clip>
+            </Image>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image9" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/小按钮%20右拨.bmp" >
+                <Image.Clip>
+                    <RectangleGeometry Rect="1048,400,90,90"/>
+                </Image.Clip>
+            </Image>
+            <Button Content="Button10" Cursor="Hand" Height="51" HorizontalAlignment="Right" Margin="0,413,319,0" x:Name="Btn_Stk" VerticalAlignment="Top" Visibility="Visible" Width="55" MouseLeftButtonDown="Button_MouseLeftButtonDown_Stk" MouseLeftButtonUp="Button_MouseLeftButtonUp_Stk" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000"/>
+            <Image Height="900" HorizontalAlignment="Left" x:Name="image10" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/小按钮%20按下.bmp" Visibility="Collapsed">
+                <Image.Clip>
+                    <RectangleGeometry Rect="1048,400,90,90"/>
+                </Image.Clip>
+            </Image>
+            <Grid Height="172" HorizontalAlignment="Left" Margin="927,208,0,0" VerticalAlignment="Top" Width="257" x:Name="Rotate" Background="#00000000">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="171*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Image HorizontalAlignment="Left" x:Name="image11" Stretch="Fill" VerticalAlignment="Top" Source="/JRC_JHS182_AIS_D;component/Images/转钮.bmp" Margin="43,5,0,0" Width="3140" Height="157">
+                    <Image.Clip>
+                        <RectangleGeometry x:Name="RG_123" Rect="0,0,157,157"/>
+                    </Image.Clip>
+                </Image>
+                <Grid Height="136" HorizontalAlignment="Left" Margin="22,17,0,0" x:Name="left" VerticalAlignment="Top" Width="30"/>
+                <Button Content="Button12" Cursor="Hand" Height="107" HorizontalAlignment="Right" Margin="0,0,173,31" x:Name="Btn_Rt_left" VerticalAlignment="Bottom" Visibility="Visible" Width="70" MouseLeftButtonDown="left_MouseLeftButtonDown" MouseLeftButtonUp="left_MouseLeftButtonUp" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000" MouseMove="Btn_Rt_left_MouseMove" MouseLeave="Btn_Rt_left_MouseLeave" />
+                <Grid HorizontalAlignment="Left" Margin="194,16,0,19" x:Name="right" Width="30" MouseLeftButtonUp="right_MouseLeftButtonUp" MouseLeftButtonDown="right_MouseLeftButtonDown"/>
+                <Button Content="Button11" Cursor="Hand" Height="168" HorizontalAlignment="Left" Margin="158.133,0,0,0" x:Name="Btn_Rt_right" VerticalAlignment="Top" Visibility="Visible" Width="66.867" MouseLeftButtonDown="right_MouseLeftButtonDown" MouseLeftButtonUp="right_MouseLeftButtonUp" OpacityMask="#00000000" Foreground="#00000000" Background="#00000000" BorderBrush="#00000000" d:LayoutOverrides="GridBox" MouseMove="Btn_Rt_right_MouseMove" MouseLeave="Btn_Rt_right_MouseLeave" />
+                <Button Height="49" HorizontalAlignment="Left" Margin="101,59,0,0" x:Name="Btn_Enter" VerticalAlignment="Top" Width="46"  MouseLeftButtonDown="Btn_MouseLeftButtonDown_Enter" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" OpacityMask="#00000000" MouseLeftButtonUp="Btn_Enter_MouseLeftButtonUp" />
+            </Grid>
+                <Image Height="900" HorizontalAlignment="Left"  x:Name="image12" Stretch="Fill" VerticalAlignment="Top" Width="1440" Source="/JRC_JHS182_AIS_D;component/Images/JHS-182ENTER%20.png" Visibility="Visible" Margin="3,0,0,0" >
+                <Image.Clip>
+                    <RectangleGeometry Rect="1026,268,48,48"/>
+                </Image.Clip>
+            </Image>
+            <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Width="370" x:Name="textBlock_Title" Margin="510,209,561,0"  FlowDirection="LeftToRight" TextAlignment="Left" Height="23" VerticalAlignment="Top" Foreground="Black" FontWeight="Bold" Padding="10,4,0,0" />
+            <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" Width="92" x:Name="textBlock_MenuTitleLeft" Margin="510,232,748,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Padding="0,4,0,0" TextAlignment="Right" />
+            <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" Margin="695,232,561,0" x:Name="textBlock_MenuTitleRight" Width="163" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Padding="0,4,0,0" HorizontalAlignment="Right" />
+            <TextBlock
+            FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" Width="114" x:Name="textBlock_MenuTitleMid" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="602,232,748,0" />
+            <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" Margin="510,623,563,0" x:Name="textBlock_Total" Width="370" VerticalAlignment="Top" Padding="0,4,10,0" FontWeight="Bold" />
+            <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" Margin="510,646,555,228" x:Name="textBlock_Bottom" Width="370" VerticalAlignment="Top" FontWeight="Bold" Padding="10,4,0,0" />
+            <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" Margin="770,209,0,0" x:Name="textBlock_Time" FontWeight="Bold" Padding="0,4,0,0" Width="105" TextAlignment="Right" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Rectangle HorizontalAlignment="Left" Margin="510,209,0,668" x:Name="rectangle_Title" Stroke="Black" Width="370" />
+            <Rectangle Margin="510,232,0,0" x:Name="rectangle_MenuTitleLeft" Height="23" Width="207" HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" />
+            <Rectangle Margin="0,232,560,0" x:Name="rectangle_MenuTitleRight" Stroke="Black" Width="163" Height="23" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            <Rectangle Margin="510,623,558,254" x:Name="rectangle_Total" Stroke="Black" Width="370" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Rectangle Margin="510,645,558,232" x:Name="rectangle_Bottom" Stroke="Black" Width="370" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Rectangle Height="23" HorizontalAlignment="Left" Margin="711,232,0,0" x:Name="rectangle_ChoseSign_Top" Stroke="Black" VerticalAlignment="Top" Width="12" Fill="Black" />
+            
+            <Grid Height="368" HorizontalAlignment="Left" Margin="510,255,0,0" x:Name="Grid_1" VerticalAlignment="Top" Width="370">
+            <Rectangle Margin="0" x:Name="rectangle_1_Stakpnl_Left" Stroke="Black" Height="368" VerticalAlignment="Top" Width="207" HorizontalAlignment="Left" />
+            <Rectangle Margin="185,0,0,0" x:Name="rectangle_1_Stakpnl_Right" Stroke="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Width="163" Height="368" />
+            <StackPanel Height="368" HorizontalAlignment="Left" Margin="0" x:Name="stackPanel_1_Guard" VerticalAlignment="Top" Width="27" Visibility="Visible" Opacity="1">
+
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_31" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_32" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_33" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_34" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_35" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_36" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_37" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_38" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_39" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_40" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_41" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_42" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_43" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_44" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_45" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_46" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            </StackPanel>
+                <StackPanel Height="368" HorizontalAlignment="Left" Margin="26,0,0,0" x:Name="stackPanel_1_Left" VerticalAlignment="Top" Width="67" Visibility="Visible" Opacity="1">
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_1" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_2" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_3" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_4" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_5" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_6" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_7" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_8" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_9" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_10" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_11" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_12" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_13" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_14" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_15" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_16" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                </StackPanel>
+                <StackPanel Height="368" HorizontalAlignment="Right" Margin="185,0,0,0" x:Name="stackPanel_1_Right" VerticalAlignment="Top" Width="163">
+                
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_1" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_2" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_3" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_4" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_5" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_6" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_7" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_8" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_9" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_10" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_11" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_12" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_13" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_14" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_15" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_16" Width="163" FontWeight="Bold" Padding="10,4,0,0" />
+            </StackPanel>
+           
+            <StackPanel Height="368" HorizontalAlignment="Left" Margin="92,0,0,0" x:Name="stackPanel_1_Mid" VerticalAlignment="Top" Width="114">
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_1" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_2" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_3" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_4" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_5" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_6" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_7" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_8" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_9" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_10" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_11" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_12" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_13" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_14" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_15" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+                <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_16" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            </StackPanel>
+            </Grid>
+            <Grid Height="322" HorizontalAlignment="Left" Margin="510,0,561,254" x:Name="Grid_2" VerticalAlignment="Bottom" Width="370" Visibility="Visible">
+                <Canvas x:Name="canvas_2_Map" Margin="0" HorizontalAlignment="Left" Height="322" VerticalAlignment="Top" Width="370">
+                	<Ellipse x:Name="circle_2_Outside" Height="280" Canvas.Left="0" Stroke="Black" Canvas.Top="0" Width="280" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,30,0,0"/>
+                	<Ellipse x:Name="ciecle_2_Inside" Height="140" Stroke="Black" Canvas.Left="0" Canvas.Top="0" Width="140" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="125,100,0,0"/>
+                	<ed:Arc x:Name="line_v" ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Stretch="None" Stroke="Black" StartAngle="0" Width="1" Height="560" Canvas.Left="195" Canvas.Top="30" d:LayoutOverrides="Height"/>
+                	<ed:Arc x:Name="line_h" ArcThickness="0" ArcThicknessUnit="Pixel" EndAngle="90" Height="1" Stretch="None" Stroke="Black" StartAngle="0" VerticalAlignment="Top" HorizontalAlignment="Right" Canvas.Left="-225" Canvas.Top="170" Width="560"/>
+			    </Canvas>
+                <Canvas x:Name="canvas_2_Ship" Margin="0" HorizontalAlignment="Left" Height="322" VerticalAlignment="Top" Width="370"/>
+                <Rectangle x:Name="rectangle_2_Stakpnl_Setup"  Stroke="Black" Margin="0" Width="101" Height="47" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <StackPanel Height="46" x:Name="stackPanel_2_Stakpnl_Setup" Width="100" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_Stp_1" TextAlignment="Center" Width="100" Text="" FontWeight="Bold" Margin="0" Padding="0,4,0,0" />
+                    <TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_Stp_2" TextAlignment="Center" Width="100" Text="" FontWeight="Bold" Margin="0" Padding="0,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                </StackPanel>
+                <WrapPanel x:Name="warpPanel_2_Setup" HorizontalAlignment="Left" Margin="0" Width="370" Height="322" VerticalAlignment="Top">
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l" Width="243" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r" Width="123" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l_Copy" Width="243" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy" Width="123" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l_Copy1" Width="243" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy1" Width="123" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l_Copy2" Width="243" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy2" Width="123" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l_Copy3" Width="243" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy3" Width="123" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l_Copy4" Width="243" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy4" Width="123" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l_Copy5" Width="243" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy5" Width="123" FontWeight="Bold" Padding="10,4,0,0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_l_Copy6" Width="185" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" Margin="0,92,0,0" TextAlignment="Center" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy7" Width="0" FontWeight="Bold" Padding="10,4,0,0" TextAlignment="Center" Margin="0" />
+                	<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="txb_r_Copy6" Width="185" FontWeight="Bold" Padding="10,4,0,0" TextAlignment="Center" Margin="0,92,0,0" />
+                </WrapPanel>
+                <Rectangle x:Name="rec_2_Down" Height="69" Margin="0,253,0,0" Stroke="Black" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left"/>
+            </Grid>
+            <Grid Height="69" HorizontalAlignment="Left" Margin="510,255,0,0" x:Name="Grid_2_3_5_6" VerticalAlignment="Top" Width="370">
+            	<Rectangle Margin="185,0,0,0" x:Name="rectangle_2_3_Stakpnl_Right" Stroke="Black" Width="163" Height="69" HorizontalAlignment="Right" VerticalAlignment="Top" />
+            	<Rectangle x:Name="rectangle_2_3_Stakpnl_Left" Stroke="Black" Width="207" Height="69" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle x:Name="rectangle_2_Stakpnl_Map" Stroke="Black" Margin="0,69,0,-322" />
+            	<StackPanel Height="69" HorizontalAlignment="Left" Margin="0" x:Name="stackPanel_2_3_Guard" VerticalAlignment="Top" Width="27">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock4_4" Width="27" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock4_5" Width="27" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock4_6" Width="27" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            	</StackPanel>
+            	<StackPanel Height="69" HorizontalAlignment="Left" Margin="26,0,0,0" x:Name="stackPanel_2_3_Left" VerticalAlignment="Top" Width="67">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock4_1" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock4_2" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock4_3" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            	</StackPanel>
+            	<StackPanel Height="69" HorizontalAlignment="Right" Margin="185,0,0,0" x:Name="stackPanel_2_3_Right" VerticalAlignment="Top" Width="162">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock5_1" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock5_2" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock5_3" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            	</StackPanel>
+            	<StackPanel Height="69" HorizontalAlignment="Left" Margin="92,0,0,0" x:Name="stackPanel_2_3_Mid" VerticalAlignment="Top" Width="114">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock6_1" Width="114" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" TextAlignment="Right" VerticalAlignment="Top" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock6_2" Width="114" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" TextAlignment="Right" VerticalAlignment="Top" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock6_3" Width="114" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" TextAlignment="Right" VerticalAlignment="Top" />
+            	</StackPanel>
+            </Grid>
+            <Grid x:Name="Grid_3" HorizontalAlignment="Left" Height="322" Margin="510,324,0,0" VerticalAlignment="Top" Width="370">
+            	<StackPanel Height="322" Margin="0" x:Name="stackPanel_3_Detile" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile1" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile2" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile3" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile4" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile5" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile6" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile7" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile8" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile9" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile10" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile11" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile12" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile13" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile14" TextAlignment="Left" Width="370" Padding="10,4,0,0" FontWeight="Bold" />
+
+            	</StackPanel>
+            	<ed:RegularPolygon x:Name="polygon_3_ChoseSign_Down" HorizontalAlignment="Left" InnerRadius="1" Margin="-70,149,0,0" PointCount="3" Stretch="Fill" Width="13" RenderTransformOrigin="3.286,4.286" Height="20" Fill="Black" VerticalAlignment="Top">
+            		<ed:RegularPolygon.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform ScaleY="-1" ScaleX="-1"/>
+            				<SkewTransform AngleY="0" AngleX="0"/>
+            				<RotateTransform Angle="0"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</ed:RegularPolygon.RenderTransform>
+            	</ed:RegularPolygon>
+            	<ed:RegularPolygon x:Name="polygon_3_ChoseSign_Up" HorizontalAlignment="Left" InnerRadius="1" PointCount="3" Stretch="Fill" Width="13" Fill="Black" RenderTransformOrigin="3.286,4.286" Height="20" VerticalAlignment="Top" Margin="2,2,0,0" />
+            </Grid>
+            <Grid x:Name="Grid_4" Width="370" Height="391" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="510,255,0,0">
+            	<Grid.ColumnDefinitions>
+            		<ColumnDefinition Width="0*"/>
+            		<ColumnDefinition/>
+            	</Grid.ColumnDefinitions>
+            	<StackPanel Height="368" HorizontalAlignment="Left" Margin="0" x:Name="stackPanel_4_Guard" VerticalAlignment="Top" Width="27" Visibility="Visible" Opacity="1" Grid.Column="1">
+
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_47" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_48" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_49" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_50" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_51" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_52" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_53" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_54" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_55" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_56" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_57" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_58" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_59" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_60" Width="27" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0" TextAlignment="Right" />
+            	</StackPanel>
+            	<StackPanel Height="322" HorizontalAlignment="Left" Margin="26,0,0,0" x:Name="stackPanel_4_Left" VerticalAlignment="Top" Width="67" Visibility="Visible" Opacity="1" Grid.Column="1">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_17" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_18" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_19" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_20" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_21" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_22" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_23" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_24" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_25" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_26" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_27" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_28" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_29" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock1_30" Width="67" TextAlignment="Right" Visibility="Visible" FontWeight="Bold" Padding="0,4,0,0" />
+            	</StackPanel>
+            	<StackPanel Height="322" HorizontalAlignment="Left" Margin="207,0,0,0" x:Name="stackPanel_4_Right" VerticalAlignment="Top" Width="163" Grid.Column="1">
+                
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_17" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_18" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_19" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_20" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_21" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_22" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_23" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_24" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_25" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_26" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_27" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_28" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_29" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock2_30" Width="163" FontWeight="Bold" Padding="10,4,0,0" HorizontalAlignment="Right" />
+            	</StackPanel>
+            	<StackPanel Height="322" HorizontalAlignment="Left" Margin="92,0,0,0" x:Name="stackPanel_4_Mid" VerticalAlignment="Top" Width="114" Grid.Column="1" d:LayoutOverrides="HorizontalAlignment">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_17" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_18" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_19" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_20" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_21" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_22" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_23" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_24" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_25" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_26" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_27" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_28" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_29" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock3_30" TextAlignment="Right" Width="114" FontWeight="Bold" Padding="0,4,10,0" />
+            	</StackPanel>
+            	<Grid x:Name="grid_4_Down" Height="68" Margin="0,322,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="370" Grid.ColumnSpan="2">
+            		<Rectangle x:Name="rectangle_4_Select1" HorizontalAlignment="Left" Margin="48,0,0,0" Stroke="Black" Width="80" Fill="Black" Height="23" VerticalAlignment="Top"/>
+            		<Rectangle x:Name="rectangle_4_Select2" HorizontalAlignment="Right" Margin="0,0,56.467,0" Stroke="Black" Width="80" Fill="Black" Height="23" VerticalAlignment="Top"/>
+            		<Rectangle x:Name="rectangle_4_Select3" HorizontalAlignment="Left" Margin="3,22,0,23" Stroke="Black" Width="185" Fill="Black" d:LayoutOverrides="HorizontalAlignment"/>
+            		<Rectangle x:Name="rectangle_4_Select4" HorizontalAlignment="Right" Margin="0,23,16,22" Stroke="Black" Width="160" Fill="Black" d:LayoutOverrides="HorizontalAlignment"/>
+            		<Rectangle x:Name="rectangle_4_Select5" HorizontalAlignment="Left" Margin="48,0,0,0" Stroke="Black" Width="80" Fill="Black" Height="23" VerticalAlignment="Bottom"/>
+            		<Rectangle x:Name="rectangle_4_Select6" HorizontalAlignment="Right" Margin="0,0,56.467,-1" Stroke="Black" Width="80" Fill="Black" Height="23" VerticalAlignment="Bottom"/>
+            	</Grid>
+            	<Rectangle Margin="0" x:Name="rectangle_4_Stakpnl_Left" Stroke="Black" Height="322" VerticalAlignment="Top" Width="207" HorizontalAlignment="Left" Grid.Column="1" d:LayoutOverrides="HorizontalAlignment" />
+            	<Rectangle Margin="207,0,0,0" x:Name="rectangle_4_Stakpnl_Right" Stroke="Black" VerticalAlignment="Top" Height="322" Grid.Column="1" Width="163" />
+            	<Rectangle Margin="0,322,0,0" x:Name="rectangle_4_Stakpnl_Down" Stroke="Black" Height="68" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" Grid.ColumnSpan="2" />
+            	<WrapPanel x:Name="warpPanel_4_Down" Margin="0,322,0,0" Height="68" VerticalAlignment="Top" HorizontalAlignment="Left" Width="370" Grid.ColumnSpan="2">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3" TextAlignment="Right" Width="185" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select4" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select5" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select6" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0"  />
+            	</WrapPanel>
+            	<Grid x:Name="grid_4_Down_Ownship" Height="68" VerticalAlignment="Top" HorizontalAlignment="Left" Width="370" Grid.ColumnSpan="2" Margin="0,322,0,0" d:LayoutOverrides="VerticalAlignment">
+            		<Rectangle x:Name="rectangle_4_Select_OwndispON" Stroke="Black" Fill="Black" RenderTransformOrigin="-0.425,0.365" Margin="145,23,0,0" Width="40" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top"/>
+            		<Rectangle x:Name="rectangle_4_Select_OwndispOFF" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,23,145,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="40"/>
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Owndisp" TextAlignment="Center" Width="370" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  VerticalAlignment="Top"  d:LayoutOverrides="GridBox"  />
+            	</Grid>
+            	<WrapPanel x:Name="warpPanel_4_Down_Owndisp" Margin="0,345,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="370" Grid.ColumnSpan="2">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select8" TextAlignment="Right" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select9" Width="185" FontWeight="Bold" Padding="0,4,10,0"  />
+            	</WrapPanel>
+            	<ed:RegularPolygon x:Name="polygon_4_ChoseSign_Up" HorizontalAlignment="Left" InnerRadius="1" Margin="3,2,0,0" PointCount="3" Stretch="Fill" Width="11" Fill="Black" RenderTransformOrigin="3.286,4.286" Height="20" VerticalAlignment="Top" />
+            	<ed:RegularPolygon x:Name="polygon_4_ChoseSign_Down" InnerRadius="1" PointCount="3" Stretch="Fill" Width="11" RenderTransformOrigin="3.286,4.286" Height="20" Fill="Black" HorizontalAlignment="Left" Margin="-60.003,150.067,0,0" VerticalAlignment="Top">
+            		<ed:RegularPolygon.RenderTransform>
+            			<TransformGroup>
+            				<ScaleTransform ScaleY="-1" ScaleX="-1"/>
+            				<SkewTransform AngleY="0" AngleX="0"/>
+            				<RotateTransform Angle="0"/>
+            				<TranslateTransform/>
+            			</TransformGroup>
+            		</ed:RegularPolygon.RenderTransform>
+            	</ed:RegularPolygon>
+            	<Grid x:Name="grid_4_Down_List" Height="68" VerticalAlignment="Top" HorizontalAlignment="Left" Width="370" Grid.ColumnSpan="2" Margin="0,322,0,0">
+            		<TextBlock x:Name="Tb_Sybl" HorizontalAlignment="Left" TextWrapping="Wrap" Width="15" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="0,4,0,0" Margin="188,0,0,0" d:LayoutOverrides="HorizontalAlignment" Height="23" VerticalAlignment="Top"/>
+            		<TextBlock x:Name="Tb_Sybl2" HorizontalAlignment="Left" TextWrapping="Wrap" Width="15" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="0,4,0,0" Margin="162,23,0,0" Height="23" VerticalAlignment="Top"/>
+            		<TextBlock x:Name="Tb_Sybl4" TextWrapping="Wrap" Width="15" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="0,4,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="VerticalAlignment" Margin="217,45,0,0"/>
+            		<TextBlock x:Name="Tb_Sybl3" TextWrapping="Wrap" Width="15" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="0,4,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="222,23,0,0"/>
+            		<Grid x:Name="grid_4_Down_List_Rec" Height="68" VerticalAlignment="Top" HorizontalAlignment="Left" Width="370" Margin="0">
+            			<Rectangle x:Name="rectangle_4_Select8" Stroke="Black" Fill="Black" RenderTransformOrigin="-0.425,0.365" Margin="32.063,0,0,0" Width="40" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" />
+            			<Rectangle x:Name="rectangle_4_Select7" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,22,287.937,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" />
+            			<Rectangle x:Name="rectangle_4_Select9" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,46,287.937,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" />
+            			<Rectangle x:Name="rectangle_4_Select10" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,0,181.8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="84" d:LayoutOverrides="VerticalAlignment" />
+            			<Rectangle x:Name="rectangle_4_Select11" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,0,68.2,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" />
+            			<Rectangle x:Name="rectangle_4_Select12" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,23,207.8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="58" />
+            			<Rectangle x:Name="rectangle_4_Select14" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,23,147.058,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="48" />
+            			<Rectangle x:Name="rectangle_4_Select15" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,23,73.528,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="62" d:LayoutOverrides="HorizontalAlignment" />
+            			<Rectangle x:Name="rectangle_4_Select13" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,45,152.8,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="113" />
+            			<Rectangle x:Name="rectangle_4_Select16" Stroke="Black" Fill="Black" Height="23" RenderTransformOrigin="-0.425,0.365" Margin="0,46,91,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" d:LayoutOverrides="HorizontalAlignment" />
+            		</Grid>
+            		<WrapPanel x:Name="warpPanel_4_Down_List" Margin="0" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="82" d:LayoutOverrides="HorizontalAlignment, GridBox">
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_1" TextAlignment="Right" Width="80" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_2" Width="80" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_3" Width="80" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right"  />
+            		</WrapPanel>
+            		<WrapPanel x:Name="warpPanel_4_Down_BRG" Margin="92,0,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="278" d:LayoutOverrides="GridBox">
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_4" Width="110" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_5" Width="120" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		</WrapPanel>
+            		<WrapPanel x:Name="warpPanel_4_Down_SORT" Margin="92,23,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="278" d:LayoutOverrides="GridBox">
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_6" Width="70" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_7" Width="75" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_8" Width="80" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		</WrapPanel>
+            		<WrapPanel x:Name="warpPanel_4_Down_NAME" Margin="92,46,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="278" d:LayoutOverrides="GridBox">
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_9" Width="122" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_10" Width="90" FontWeight="Bold" Padding="4,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		</WrapPanel>
+            		<WrapPanel x:Name="warpPanel_4_Down_List_Sybl" Margin="82,0,0,0" Height="69" VerticalAlignment="Top" HorizontalAlignment="Left" Width="10" d:LayoutOverrides="HorizontalAlignment, GridBox">
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_11" TextAlignment="Right" Width="10" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_12" Width="10" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="26.667" Height="23" x:Name="textBlock_13" Width="10" FontWeight="Bold" Padding="0,4,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right"  />
+            		</WrapPanel>
+            	</Grid>
+            </Grid>
+            <ed:RegularPolygon x:Name="polygon_ChoseSign_Down" HorizontalAlignment="Left" InnerRadius="1" Margin="451.133,0,0,429.866" PointCount="3" Stretch="Fill" Width="11" RenderTransformOrigin="3.286,4.286" Height="20" Fill="Black" VerticalAlignment="Bottom">
+            	<ed:RegularPolygon.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform ScaleY="-1" ScaleX="-1"/>
+            			<SkewTransform AngleY="0" AngleX="0"/>
+            			<RotateTransform Angle="0"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</ed:RegularPolygon.RenderTransform>
+            </ed:RegularPolygon>
+            <ed:RegularPolygon x:Name="polygon_ChoseSign_Down_Copy" HorizontalAlignment="Left" InnerRadius="1" Margin="450.885,404,0,0" PointCount="3" Stretch="Fill" Width="11" RenderTransformOrigin="3.286,4.286" Height="20" Fill="Black" VerticalAlignment="Top">
+            	<ed:RegularPolygon.RenderTransform>
+            		<TransformGroup>
+            			<ScaleTransform ScaleY="-1" ScaleX="-1"/>
+            			<SkewTransform AngleY="0" AngleX="0"/>
+            			<RotateTransform Angle="0"/>
+            			<TranslateTransform/>
+            		</TransformGroup>
+            	</ed:RegularPolygon.RenderTransform>
+            </ed:RegularPolygon>
+            <ed:RegularPolygon x:Name="polygon_ChoseSign_Up" HorizontalAlignment="Left" InnerRadius="1" Margin="512.5,257.133,0,0" PointCount="3" Stretch="Fill" Width="11" Fill="Black" RenderTransformOrigin="3.286,4.286" Height="20" VerticalAlignment="Top" />
+            <ed:RegularPolygon x:Name="polygon_ChoseSign_Up_Copy" HorizontalAlignment="Left" InnerRadius="1" Margin="512.5,326,0,0" PointCount="3" Stretch="Fill" Width="11" Fill="Black" RenderTransformOrigin="3.286,4.286" Height="20" VerticalAlignment="Top" Visibility="Collapsed" />
+            <TextBlock Height="28" HorizontalAlignment="Left" Margin="74,179,0,0" x:Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" Width="209" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="63,240,0,0" x:Name="textBlock2" Text="TextBlock" VerticalAlignment="Top" Width="264" />
+            <TextBlock Height="34" HorizontalAlignment="Left" Margin="65,302,0,0" x:Name="textBlock3" VerticalAlignment="Top" Width="258" ><Run Text="TextBlock"/></TextBlock>
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_5" Width="370" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" Margin="510,323,0,0">
+            	<Rectangle Margin="0" x:Name="rectangle_MainDisp" Stroke="Black" Width="370" Height="230" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle Margin="0,230,0,0" x:Name="rectangle_Input" Stroke="Black" Width="255" Height="92" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle Margin="255,230,0,0" x:Name="rectangle_Setup" Stroke="Black" Width="115" Height="92" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<StackPanel x:Name="stackPanel_5_Setup" Height="92" Margin="255,230,0,0" VerticalAlignment="Top" Width="115" HorizontalAlignment="Left">
+            		<TextBlock x:Name="tb_5_Setup1" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock x:Name="tb_5_Setup1_Copy" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock
+            			x:Name="tb_5_Setup1_Copy2" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock x:Name="tb_5_Setup1_Copy1" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            	</StackPanel>
+            	<WrapPanel x:Name="warpPanel_5_Input" HorizontalAlignment="Left" Height="92" Margin="0,230,0,0" VerticalAlignment="Top" Width="255">
+            		<TextBlock x:Name="tb_5_Input1" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy1" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy2" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy3" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy4" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy5" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy6" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy7" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy8" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy9" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy10" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy11" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy12" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy13" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy14" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy15" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy16" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy17" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy18" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy19" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy20" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy21" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy22" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy23" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy24" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy25" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy26" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy27" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy28" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy29" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy30" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy31" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy32" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy33" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy34" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy35" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy36" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy37" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy38" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy39" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy40" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy41" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy42" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy43" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy44" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy45" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy46" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy47" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy48" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy49" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy50" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy51" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy52" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy53" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy54" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy55" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy56" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy57" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy58" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy59" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy60" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy61" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy62" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy63" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy64" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            	</WrapPanel>
+            	<TextBlock
+            		FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_5_Password" FontWeight="Bold" Padding="0,4,0,0" VerticalAlignment="Top" Margin="45,59,0,0" Width="150" HorizontalAlignment="Left" TextAlignment="Right" />
+            	<WrapPanel x:Name="warpPanel_5_Passcode" HorizontalAlignment="Left" Height="23" Margin="215,59,0,0" VerticalAlignment="Top" Width="60" d:LayoutOverrides="VerticalAlignment">
+            		<TextBlock x:Name="tb_5_Input2" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy65" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy66" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy67" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            	</WrapPanel>
+            </Grid>
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_6" Width="370" VerticalAlignment="Top" Margin="510,323,0,0">
+            	<Rectangle Margin="0" x:Name="rectangle_Pasword1" Stroke="Black" Width="370" Height="322" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<StackPanel Height="322" Margin="0" x:Name="stackPanel_6_Mainmenu" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile15" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile16" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile17" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile18" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile19" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile20" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile21" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile22" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile23" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile24" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile25" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile26" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile27" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile28" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+
+            	</StackPanel>
+            </Grid>
+            <Image Height="30" HorizontalAlignment="Left" Margin="990,708,0,0" x:Name="image_HandPow" Stretch="Fill" VerticalAlignment="Top" Width="30" Source="/JRC_JHS182_AIS_D;component/Images/HAND1.png" />
+            <Image Height="30" HorizontalAlignment="Left" Margin="1080,708,0,0" x:Name="image_HandOFF" Source="/JRC_JHS182_AIS_D;component/Images/HAND1.png" Stretch="Fill" VerticalAlignment="Top" Width="30" />
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_Input" Width="370" VerticalAlignment="Top" Margin="510,323,0,0" Visibility="Collapsed">
+            	<Rectangle Margin="0" x:Name="rectangle_MainDisp1" Stroke="Black" Width="370" Height="230" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle Margin="0,230,0,0" x:Name="rectangle_Input1" Stroke="Black" Width="255" Height="92" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle Margin="255,230,0,0" x:Name="rectangle_Setup1" Stroke="Black" Width="115" Height="92" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<StackPanel x:Name="stackPanel_Input_Setup" Height="92" Margin="255,230,0,0" VerticalAlignment="Top" Width="115" HorizontalAlignment="Left">
+            		<TextBlock x:Name="tb_5_Setup2" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock x:Name="tb_5_Setup1_Copy3" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock
+            			x:Name="tb_5_Setup1_Copy4" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock x:Name="tb_5_Setup1_Copy5" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            	</StackPanel>
+            	<WrapPanel x:Name="warpPanel_Input" HorizontalAlignment="Left" Height="92" Margin="0,230,0,0" VerticalAlignment="Top" Width="255">
+            		<TextBlock x:Name="tb_5_Input3" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy68" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy69" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy70" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy71" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy72" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy73" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy74" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy75" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy76" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy77" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy78" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy79" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy80" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy81" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy82" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy83" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy84" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy85" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy86" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy87" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy88" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy89" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy90" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy91" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy92" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy93" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy94" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy95" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy96" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy97" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy98" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy99" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy100" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy101" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy102" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy103" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy104" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy105" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy106" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy107" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy108" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy109" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy110" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy111" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy112" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy113" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy114" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy115" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy116" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy117" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy118" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy119" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy120" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy121" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy122" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy123" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy124" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy125" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy126" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy127" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy128" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy129" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy130" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy131" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            		<TextBlock x:Name="tb_5_Input1_Copy132" Height="23" TextWrapping="Wrap" Width="15" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,2,0,0" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold"/>
+            	</WrapPanel>
+            	<TextBlock
+            		FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_InputText" FontWeight="Bold" Padding="0,4,0,0" VerticalAlignment="Top" Margin="0" Width="370" HorizontalAlignment="Left" />
+            </Grid>
+            <Grid x:Name="Grid_DetailSel" Height="46" Margin="510,599,0,0" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" Visibility="Collapsed">
+            	<WrapPanel x:Name="Wrappanel_DetailSel" HorizontalAlignment="Left" Margin="0" Width="370" VerticalAlignment="Top" Height="46">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy18" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy16" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy9" TextAlignment="Center" Width="200" FontWeight="Bold" Padding="0,4,10,0" Margin="47,0,0,0"  />
+            	</WrapPanel>
+            	<Rectangle Margin="0" x:Name="rectangle_DetailSel" Stroke="Black" Width="370" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            </Grid>
+            <Grid x:Name="Grid_OtrSel" Height="46" Margin="510,599,0,0" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" Visibility="Collapsed">
+            	<WrapPanel x:Name="Wrap_panel_OtrSel" HorizontalAlignment="Left" Margin="0" Width="370" VerticalAlignment="Top" Height="46">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy" TextAlignment="Right" Width="185" FontWeight="Bold" Padding="0,4,10,0"  />
+            	</WrapPanel>
+            	<Rectangle Margin="0" x:Name="rectangle_OtrSel" Stroke="Black" Width="370" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            </Grid>
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_TX" Width="370" VerticalAlignment="Top" Margin="510,323,0,0" Visibility="Collapsed">
+            	<Rectangle Margin="0" x:Name="rectangle_MainDisp2" Stroke="Black" Width="370" Height="230" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle Margin="0,230,0,0" x:Name="rectangle_Input2" Stroke="Black" Width="255" Height="92" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle Margin="255,230,0,0" x:Name="rectangle_Setup2" Stroke="Black" Width="115" Height="92" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<StackPanel Height="230" Margin="0" x:Name="stackPanel_TX" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile29" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile30" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile31" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile32" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile33" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile34" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile35" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile36" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile37" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile38" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+
+            	</StackPanel>
+            	<StackPanel x:Name="stackPanel_TXSel" Height="92" Margin="255,230,0,0" VerticalAlignment="Top" Width="115" HorizontalAlignment="Left">
+            		<TextBlock x:Name="tb_5_Setup3" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock x:Name="tb_5_Setup1_Copy6" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock
+            			x:Name="tb_5_Setup1_Copy7" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            		<TextBlock x:Name="tb_5_Setup1_Copy8" Height="23" Margin="0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" FontWeight="Bold" Padding="10,4,0,0"/>
+            	</StackPanel>
+            	<TextBlock
+            		FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_TX" FontWeight="Bold" Padding="0,4,0,0" VerticalAlignment="Top" Margin="0" Width="370" HorizontalAlignment="Left" />
+            </Grid>
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_TX_Send" Width="370" VerticalAlignment="Top" Margin="510,323,0,0" Visibility="Collapsed">
+            	<Rectangle Margin="0" x:Name="rectangle_MainDisp3" Stroke="Black" Width="370" Height="230" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Rectangle Margin="0,230,0,0" x:Name="rectangle_Input3" Stroke="Black" Width="370" Height="92" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<StackPanel Height="230" Margin="0" x:Name="stackPanel_TX_Send" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile39" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile40" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile41" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile42" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile43" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile44" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile45" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile46" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile47" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile48" TextAlignment="Left" Width="370" FontWeight="Bold" Padding="10,4,0,0" />
+
+            	</StackPanel>
+            	<TextBlock
+            		FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_TX1" FontWeight="Bold" Padding="0,4,0,0" VerticalAlignment="Top" Margin="0" Width="370" HorizontalAlignment="Left" />
+            	<WrapPanel x:Name="warppanel_TX_Send" HorizontalAlignment="Left" Margin="0,230,0,0" Width="370" VerticalAlignment="Top" Height="92" d:LayoutOverrides="VerticalAlignment">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy1" Width="220" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy1" Width="150" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy1" Width="220" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy2" Width="150" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center" TextAlignment="Right"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy2" Width="370" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy3" Width="370" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            	</WrapPanel>
+            </Grid>
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_WayPoint" Width="370" VerticalAlignment="Top" Margin="510,323,0,0" Visibility="Collapsed">
+            	<Rectangle Margin="0" x:Name="rectangle_WayPoint" Stroke="Black" Width="370" Height="322" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<Grid x:Name="Grid_BottomBox" Height="46" Margin="0,276,0,0" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left">
+            		<WrapPanel x:Name="Wrappanel_Wp_BottomBox" HorizontalAlignment="Left" Margin="0" Width="370" VerticalAlignment="Top" Height="46">
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy3" TextAlignment="Center" Width="110" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy4" TextAlignment="Center" Width="150" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy2" TextAlignment="Center" Width="110" FontWeight="Bold" Padding="0,4,10,0"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy5" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            			<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy3" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="0,4,10,0"  />
+            		</WrapPanel>
+            		<Rectangle Margin="0" x:Name="rectangle_OtrSel1" Stroke="Black" Width="370" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	</Grid>
+            	<StackPanel Height="276" Margin="0" x:Name="stackPanel_Wp_Num" VerticalAlignment="Top" Width="50" HorizontalAlignment="Left">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile49" TextAlignment="Left" Width="50" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile50" TextAlignment="Left" Width="50" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile52" TextAlignment="Left" Width="50" FontWeight="Bold" Padding="10,4,0,0" Margin="0,23,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile54" TextAlignment="Left" Width="50" FontWeight="Bold" Padding="10,4,0,0" Margin="0,23,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile56" TextAlignment="Left" Width="50" FontWeight="Bold" Padding="10,4,0,0" Margin="0,23,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile58" TextAlignment="Left" Width="50" FontWeight="Bold" Padding="10,4,0,0" Margin="0,23,0,0" />
+
+            	</StackPanel>
+            	<StackPanel Height="276" Margin="50,0,0,0" x:Name="stackPanel_Wp_Pos" VerticalAlignment="Top" Width="320" HorizontalAlignment="Left">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile59" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile60" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile61" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile62" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile63" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile64" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile65" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile66" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile67" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile68" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile57_Copy1" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile58_Copy1" TextAlignment="Left" Width="320" FontWeight="Bold" Padding="10,4,0,0" />
+
+            	</StackPanel>
+            </Grid>
+         
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_WayPointEdit" Width="370" VerticalAlignment="Top" Margin="510,323,0,0" Visibility="Collapsed">
+            	<Rectangle Margin="0" x:Name="rectangle_WayPointEdit" Stroke="Black" Width="370" Height="322" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<WrapPanel x:Name="warppanel_WayPointEdit" HorizontalAlignment="Left" Margin="50,100,0,0" Width="270" VerticalAlignment="Top" Height="69">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy4" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy6" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right" Margin="115,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy4" Width="15" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy5" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center" TextAlignment="Right" Margin="15,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy7" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy8" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy5" Width="15" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy6" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center" TextAlignment="Right" Margin="0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy7" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock
+            			FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy12" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right" Margin="100,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy9" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right" Margin="0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy6" Width="15" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy8" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center" TextAlignment="Right" Margin="15,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy10" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy11" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy7" Width="15" FontWeight="Bold" Padding="0,4,10,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy9" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center" TextAlignment="Right" Margin="0"  />
+            	</WrapPanel>
+            	<WrapPanel x:Name="warppanel_WayPointEditSybl" HorizontalAlignment="Left" Margin="50,100,0,0" Width="280" VerticalAlignment="Top" Height="69">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy10" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center" Margin="160,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy13" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Right" Margin="30,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select3_Copy8" Width="15" FontWeight="Bold" Padding="0,4,10,0" Margin="45,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy11" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center" TextAlignment="Right" Margin="160,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy14" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,0,0,0"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select2_Copy15" Width="15" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="45,0,0,0"  />
+            	</WrapPanel>
+            </Grid>
+            <Grid Height="322" HorizontalAlignment="Left" x:Name="Grid_ETA" Width="370" VerticalAlignment="Top" Margin="510,323,0,0" Visibility="Collapsed">
+            	<Rectangle Margin="0" x:Name="rectangle_ETA" Stroke="Black" Width="370" Height="322" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            	<StackPanel Height="92" Margin="0,46,0,0" x:Name="stackPanel_ETA" VerticalAlignment="Top" Width="185" HorizontalAlignment="Left">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile51" Width="185" FontWeight="Bold" Padding="10,4,0,0" TextAlignment="Center" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile53" Width="185" FontWeight="Bold" Padding="10,4,0,0" TextAlignment="Center" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile55" Width="185" FontWeight="Bold" Padding="10,4,0,0" TextAlignment="Center" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile57" Width="185" FontWeight="Bold" Padding="10,4,0,0" TextAlignment="Center" />
+
+            	</StackPanel>
+            	<StackPanel Height="92" Margin="185,46,0,0" x:Name="stackPanel_ETA_Edit" VerticalAlignment="Top" Width="185" HorizontalAlignment="Left">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile69" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile70" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile71" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="10,4,0,0" />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlockDetile72" TextAlignment="Center" Width="185" FontWeight="Bold" Padding="10,4,0,0" />
+
+            	</StackPanel>
+            </Grid>
+            <Grid x:Name="Grid_InterRogation" Height="46" Margin="510,600,0,0" VerticalAlignment="Top" Width="370" HorizontalAlignment="Left" Visibility="Collapsed">
+            	<WrapPanel x:Name="Wrappanel_InterRogation" HorizontalAlignment="Left" Margin="0" Width="370" VerticalAlignment="Top" Height="46">
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy12" TextAlignment="Center" Width="123" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy13" TextAlignment="Center" Width="124" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy14" TextAlignment="Center" Width="123" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy15" TextAlignment="Center" Width="123" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy16" TextAlignment="Center" Width="124" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            		<TextBlock FontFamily="/JRC_JHS182_AIS_D;component/Fonts/#ProggySquareTTSZ" FontSize="29.333" Height="23" x:Name="textBlock_4_Select1_Copy17" TextAlignment="Center" Width="123" FontWeight="Bold" Padding="0,4,10,0" HorizontalAlignment="Center"  />
+            	</WrapPanel>
+            	<Rectangle Margin="0" x:Name="rectangle_OtrSel2" Stroke="Black" Width="370" Height="46" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            </Grid>
+        </Grid>
+      
+    </Viewbox>
+</UserControl>
